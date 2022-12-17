@@ -33,38 +33,38 @@ class NavigationProvider extends ChangeNotifier {
     }
   }
 
-  final Map<int, Screen> _screens = {
-    ScreensIndex.firstScreenIndex: Screen(
+  final Map<int, ScreenModel> _screens = {
+    ScreensIndex.firstScreenIndex: ScreenModel(
       title: 'Nav',
       icon: Icons.directions,
-      child: FirstScreen(),
-      initialRoute: FirstScreen.route,
+      child: NavScreen(),
+      initialRoute: NavScreen.route,
       navigatorState: GlobalKey<NavigatorState>(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case InnerScreen.route:
             return CupertinoPageRoute(builder: (_) => InnerScreen());
           default:
-            return CupertinoPageRoute(builder: (_) => FirstScreen());
+            return CupertinoPageRoute(builder: (_) => NavScreen());
         }
       },
       scrollController: ScrollController(),
     ),
-    ScreensIndex.secondScreenIndex: Screen(
+    ScreensIndex.secondScreenIndex: ScreenModel(
       title: 'List',
       icon: Icons.list,
-      child: SecondScreen(),
-      initialRoute: SecondScreen.route,
+      child: ListScreen(),
+      initialRoute: ListScreen.route,
       navigatorState: GlobalKey<NavigatorState>(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           default:
-            return CupertinoPageRoute(builder: (_) => SecondScreen());
+            return CupertinoPageRoute(builder: (_) => ListScreen());
         }
       },
       scrollController: ScrollController(),
     ),
-    ScreensIndex.thirdScreenIndex: Screen(
+    ScreensIndex.thirdScreenIndex: ScreenModel(
       title: 'Dash',
       icon: Icons.flutter_dash,
       child: DashScreen(),
@@ -80,9 +80,9 @@ class NavigationProvider extends ChangeNotifier {
     ),
   };
 
-  List<Screen> get screens => _screens.values.toList();
+  List<ScreenModel> get screens => _screens.values.toList();
 
-  Screen? get currentScreen => _screens[_currentScreenIndex];
+  ScreenModel? get currentScreen => _screens[_currentScreenIndex];
 
   void setTab(int tab) {
     if (tab == currentTabIndex) {
@@ -118,7 +118,7 @@ class NavigationProvider extends ChangeNotifier {
       } else {
         return await showDialog(
           context: context,
-          builder: (context) => ExitAlertDialog(),
+          builder: (context) => const ExitAlertDialog(),
         );
       }
     }

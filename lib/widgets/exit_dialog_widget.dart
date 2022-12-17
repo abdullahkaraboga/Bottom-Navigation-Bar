@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ExitAlertDialog extends StatelessWidget {
+  const ExitAlertDialog({super.key});
+
+  static const String exitText = "Exit";
+  static const String exitMessage = "Are you sure you want to exit ?";
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Exit'),
-      content: Text("Are you sure you want to exit ?"),
+      title: const Text(exitText),
+      content: const Text(exitMessage),
       actions: <Widget>[
         MaterialButton(
           onPressed: () {
@@ -22,7 +27,7 @@ class ExitAlertDialog extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop(true);
           },
-          child: Text('Yes'),
+          child: const Text('Yes'),
         ),
       ],
     );

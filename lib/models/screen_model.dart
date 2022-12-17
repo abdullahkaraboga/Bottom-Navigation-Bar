@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Screen {
+class ScreenModel {
   final String title;
   final IconData icon;
   final Widget child;
@@ -9,7 +9,7 @@ class Screen {
   final GlobalKey<NavigatorState> navigatorState;
   final ScrollController scrollController;
 
-  Screen({
+  ScreenModel({
     required this.title,
     required this.icon,
     required this.child,

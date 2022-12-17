@@ -1,14 +1,17 @@
 import 'package:bottom_navigation_bar_with_provider/models/screens/inner_screens/inner_screens.dart';
 import 'package:flutter/material.dart';
 
-class FirstScreen extends StatelessWidget {
+class NavScreen extends StatelessWidget {
   static const route = '/nav';
+  static const String title = 'Nav Screen';
+
+  const NavScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Nav Screen'),
+        title: const Text(title),
         centerTitle: true,
       ),
       body: Center(
@@ -16,8 +19,8 @@ class FirstScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             OutlinedButton.icon(
-                icon: Icon(Icons.arrow_forward),
-                label: Text("With Bottom Navigation Bar"),
+                icon: const Icon(Icons.arrow_forward),
+                label: const Text("With Bottom Navigation Bar"),
                 onPressed: () {
                   Navigator.of(
                     context,
@@ -25,14 +28,14 @@ class FirstScreen extends StatelessWidget {
                   ).pushNamed(InnerScreen.route);
                 },
                 style: ElevatedButton.styleFrom(
-                  side: BorderSide(width: 2.0, color: Colors.blue),
+                  side: const BorderSide(width: 2.0, color: Colors.blue),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(32.0),
                   ),
                 )),
             OutlinedButton.icon(
-                icon: Icon(Icons.arrow_forward),
-                label: Text("Without Bottom Navigation Bar"),
+                icon: const Icon(Icons.arrow_forward),
+                label: const Text("Without Bottom Navigation Bar"),
                 onPressed: () {
                   Navigator.of(
                     context,
@@ -40,7 +43,7 @@ class FirstScreen extends StatelessWidget {
                   ).pushNamed(InnerScreen.route);
                 },
                 style: ElevatedButton.styleFrom(
-                  side: BorderSide(width: 2.0, color: Colors.blue),
+                  side: const BorderSide(width: 2.0, color: Colors.blue),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(32.0),
                   ),
