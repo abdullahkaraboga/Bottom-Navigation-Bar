@@ -13,7 +13,7 @@ import 'package:bottom_navigation_bar_with_provider/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(BottomNavigationBarWithProvider());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
